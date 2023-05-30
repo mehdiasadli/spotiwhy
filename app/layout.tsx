@@ -22,7 +22,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang='en'>
-      <body className={font.className}>
+      <body className={font.className} suppressHydrationWarning={true}>
         <ToasterProvider />
         <SupabaseProvider>
           <UserProvider>
