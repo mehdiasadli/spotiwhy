@@ -9,7 +9,7 @@ import useAuthModal from '@/hooks/useAuthModal'
 import { useSupabaseClient } from '@supabase/auth-helpers-react'
 import { useUser } from '@/hooks/useUser'
 import { FaUserAlt } from 'react-icons/fa'
-import { ClipLoader, HashLoader, PulseLoader } from 'react-spinners'
+import { PulseLoader } from 'react-spinners'
 import toast from 'react-hot-toast'
 
 interface HeaderProps {
