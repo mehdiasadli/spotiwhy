@@ -11,6 +11,7 @@ import { useUser } from '@/hooks/useUser'
 import { FaUserAlt } from 'react-icons/fa'
 import { PulseLoader } from 'react-spinners'
 import toast from 'react-hot-toast'
+import usePlayer from '@/hooks/usePlayer'
 
 interface HeaderProps {
   children: React.ReactNode
@@ -20,12 +21,14 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ children, className }) => {
   const { onOpen } = useAuthModal()
   const router = useRouter()
+  const player = usePlayer()
 
   const supabaseClient = useSupabaseClient()
   const { user, isLoading } = useUser()
 
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut()
+    player.reset()
     router.refresh()
 
     if (error) {
